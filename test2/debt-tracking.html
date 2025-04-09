@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Debt Tracking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="trending-down"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Debt Tracking</h2>
+                    <p>Monitor and plan your debt repayment strategy</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Manage Your Debt</h3>
+                    <p>Take control of your financial future by tracking all of your debts in one place. From credit cards to student loans, FinanceFlow helps you visualize your debt, create repayment plans, and make progress toward becoming debt-free.</p>
+                    
+                    <div class="action-card">
+                        <h4>Add New Debt</h4>
+                        <p>Add details about your loans, credit cards, and other debts to track them effectively.</p>
+                        <button class="btn btn-primary" disabled>Add Debt</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Create Repayment Plan</h4>
+                        <p>Generate a customized debt repayment plan based on your financial situation.</p>
+                        <button class="btn btn-secondary" disabled>Create Plan</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Compare Strategies</h4>
+                        <p>Compare different debt payoff methods like avalanche (highest interest first) and snowball (smallest balance first).</p>
+                        <button class="btn btn-outline" disabled>Compare Options</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Debt Overview</h3>
+                    <div class="debt-overview">
+                        <div class="debt-summary">
+                            <div class="summary-card">
+                                <div class="summary-title">Total Debt</div>
+                                <div class="summary-value debt-value">$0.00</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-title">Monthly Payments</div>
+                                <div class="summary-value">$0.00</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-title">Avg. Interest Rate</div>
+                                <div class="summary-value">0%</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-title">Debt-Free Date</div>
+                                <div class="summary-value">--</div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <div class="chart-title">Debt Payoff Projection</div>
+                            <div class="debt-chart-placeholder">
+                                <svg width="100%" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0,200 L50,180 L100,160 L150,140 L200,115 L250,95 L300,80 L350,60 L400,45 L450,30 L500,15 L550,5 L600,0" fill="none" stroke="#E74C3C" stroke-width="3" />
+                                    <line x1="0" y1="200" x2="600" y2="200" stroke="#CED4DA" stroke-width="1" />
+                                </svg>
+                                <div class="chart-axis-labels">
+                                    <div>Now</div>
+                                    <div>6mo</div>
+                                    <div>1yr</div>
+                                    <div>18mo</div>
+                                    <div>2yr</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Your Debts</h3>
+                    <div class="debts-list">
+                        <div class="debt-item">
+                            <div class="debt-type credit-card">
+                                <i data-feather="credit-card"></i>
+                            </div>
+                            <div class="debt-details">
+                                <div class="debt-name">Credit Card</div>
+                                <div class="debt-info">
+                                    <span class="debt-balance">$0.00</span>
+                                    <span class="debt-interest">0% APR</span>
+                                </div>
+                                <div class="debt-progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <span class="progress-text">0% paid</span>
+                                </div>
+                            </div>
+                            <div class="debt-actions">
+                                <button class="btn-icon-only" disabled><i data-feather="edit-2"></i></button>
+                                <button class="btn-icon-only" disabled><i data-feather="trash-2"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="debt-item">
+                            <div class="debt-type student-loan">
+                                <i data-feather="book"></i>
+                            </div>
+                            <div class="debt-details">
+                                <div class="debt-name">Student Loan</div>
+                                <div class="debt-info">
+                                    <span class="debt-balance">$0.00</span>
+                                    <span class="debt-interest">0% APR</span>
+                                </div>
+                                <div class="debt-progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <span class="progress-text">0% paid</span>
+                                </div>
+                            </div>
+                            <div class="debt-actions">
+                                <button class="btn-icon-only" disabled><i data-feather="edit-2"></i></button>
+                                <button class="btn-icon-only" disabled><i data-feather="trash-2"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="debt-item">
+                            <div class="debt-type mortgage">
+                                <i data-feather="home"></i>
+                            </div>
+                            <div class="debt-details">
+                                <div class="debt-name">Mortgage</div>
+                                <div class="debt-info">
+                                    <span class="debt-balance">$0.00</span>
+                                    <span class="debt-interest">0% APR</span>
+                                </div>
+                                <div class="debt-progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 0%;"></div>
+                                    </div>
+                                    <span class="progress-text">0% paid</span>
+                                </div>
+                            </div>
+                            <div class="debt-actions">
+                                <button class="btn-icon-only" disabled><i data-feather="edit-2"></i></button>
+                                <button class="btn-icon-only" disabled><i data-feather="trash-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

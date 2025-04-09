@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Account Linking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="link"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Account Linking</h2>
+                    <p>Connect your bank accounts for automatic tracking</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Connect Your Financial Accounts</h3>
+                    <p>Link your bank accounts, credit cards, investment portfolios, and other financial institutions for automatic transaction import and real-time balance updates. This helps you get a comprehensive view of your finances in one place.</p>
+                    
+                    <div class="security-notice">
+                        <div class="security-icon">
+                            <i data-feather="shield"></i>
+                        </div>
+                        <div class="security-content">
+                            <h4>Bank-Level Security</h4>
+                            <p>Your security is our top priority. We use bank-level encryption to protect your data, and we never store your banking credentials. All connections are established through secure APIs using read-only access.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Add a New Account</h4>
+                        <p>Connect your bank, credit card, or investment account to get started.</p>
+                        <button class="btn btn-primary" disabled>Connect Account</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Supported Financial Institutions</h3>
+                    <div class="institutions-grid">
+                        <div class="institution-card">
+                            <div class="institution-logo bank">
+                                <i data-feather="credit-card"></i>
+                            </div>
+                            <h4>Banks & Credit Unions</h4>
+                            <p>Connect checking, savings, and credit card accounts from major banks and local credit unions.</p>
+                        </div>
+                        
+                        <div class="institution-card">
+                            <div class="institution-logo investment">
+                                <i data-feather="trending-up"></i>
+                            </div>
+                            <h4>Investment Platforms</h4>
+                            <p>Track your investment portfolio, retirement accounts, and brokerage services.</p>
+                        </div>
+                        
+                        <div class="institution-card">
+                            <div class="institution-logo fintech">
+                                <i data-feather="smartphone"></i>
+                            </div>
+                            <h4>Digital Wallets</h4>
+                            <p>Connect your digital payment services and online financial platforms.</p>
+                        </div>
+                        
+                        <div class="institution-card">
+                            <div class="institution-logo loans">
+                                <i data-feather="home"></i>
+                            </div>
+                            <h4>Loans & Mortgages</h4>
+                            <p>Track your loan balances, payment schedules, and interest rates.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Benefits of Account Linking</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i data-feather="refresh-cw"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Automatic Updates</h4>
+                                <p>Transactions are automatically imported as they occur, so your financial data is always up-to-date.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i data-feather="eye"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Complete Visibility</h4>
+                                <p>Get a holistic view of your finances across all your accounts in one dashboard.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i data-feather="clock"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Save Time</h4>
+                                <p>Eliminate manual data entry and spend more time analyzing your finances.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i data-feather="alert-triangle"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Fraud Detection</h4>
+                                <p>Identify unusual transactions quickly to prevent fraud and unauthorized charges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

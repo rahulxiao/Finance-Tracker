@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FinanceFlow - Personal Finance Management</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Roboto+Mono&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Feather Icons -->
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/responsive.css" />
+        <link rel="stylesheet" href="css/index.css" />
+    </head>
+    <body>
+        <div class="app-container">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <h1>FinanceFlow</h1>
+                    <button
+                        id="sidebar-toggle"
+                        class="sidebar-toggle mobile-only"
+                    >
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="active" data-page="dashboard">
+                        <a href="#"><i data-feather="home"></i> Dashboard</a>
+                    </li>
+                    <li data-page="transactions">
+                        <a href="#"
+                            ><i data-feather="dollar-sign"></i> Transactions</a
+                        >
+                    </li>
+                    <li data-page="budgets">
+                        <a href="#"><i data-feather="pie-chart"></i> Budgets</a>
+                    </li>
+                    <li data-page="goals">
+                        <a href="#"><i data-feather="target"></i> Goals</a>
+                    </li>
+                    <li data-page="bills">
+                        <a href="#"><i data-feather="calendar"></i> Bills</a>
+                    </li>
+                    <li data-page="reports">
+                        <a href="#"
+                            ><i data-feather="bar-chart-2"></i> Reports</a
+                        >
+                    </li>
+                    <li data-page="settings">
+                        <a href="#"><i data-feather="settings"></i> Settings</a>
+                    </li>
+                    <li data-page="Features">
+                        <a href="features.html"><i data-feather="settings"></i> Features</a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <div class="theme-toggle-container">
+                        <label class="theme-toggle" for="dark-mode-toggle">
+                            <input type="checkbox" id="dark-mode-toggle" />
+                            <span class="theme-toggle-slider"></span>
+                            <i data-feather="sun" class="theme-icon-light"></i>
+                            <i data-feather="moon" class="theme-icon-dark"></i>
+                        </label>
+                    </div>
+                    <button id="export-data" class="btn btn-secondary">
+                        <i data-feather="download"></i> Export Data
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <header class="page-header">
+                    <h1 id="page-title">Dashboard</h1>
+                    <div class="date-display">
+                        <span id="current-date"></span>
+                    </div>
+                </header>
+
+                <!-- Dashboard Page -->
+                <section id="dashboard-page" class="page-content active">
+                    <div class="dashboard-grid">
+                        <!-- Summary Statistics Row -->
+                        <div class="dashboard-summary-row">
+                            <!-- Income Stat Card -->
+                            <div class="summary-stat-card income-stat">
+                                <div class="stat-icon">
+                                    <i data-feather="trending-up"></i>
+                                </div>
+                                <div class="stat-label">Total Income</div>
+                                <div class="stat-value" id="stat-income-amount">$0.00</div>
+                                <div class="stat-change positive">
+                                    <i data-feather="arrow-up"></i> 
+                                    <span id="stat-income-change">0%</span>
+                                </div>
+                                <div class="stat-note">vs. last month</div>
+                            </div>
+
+                            <!-- Expenses Stat Card -->
+                            <div class="summary-stat-card expenses-stat">
+                                <div class="stat-icon">
+                                    <i data-feather="trending-down"></i>
+                                </div>
+                                <div class="stat-label">Total Expenses</div>
+                                <div class="stat-value" id="stat-expenses-amount">$0.00</div>
+                                <div class="stat-change negative">
+                                    <i data-feather="arrow-down"></i> 
+                                    <span id="stat-expenses-change">0%</span>
+                                </div>
+                                <div class="stat-note">vs. last month</div>
+                            </div>
+
+                            <!-- Savings Stat Card -->
+                            <div class="summary-stat-card savings-stat">
+                                <div class="stat-icon">
+                                    <i data-feather="dollar-sign"></i>
+                                </div>
+                                <div class="stat-label">Total Savings</div>
+                                <div class="stat-value" id="stat-savings-amount">$0.00</div>
+                                <div class="stat-change positive">
+                                    <span id="stat-savings-percentage">0%</span> of income
+                                </div>
+                                <div class="stat-note">Current Month</div>
+                            </div>
+
+                            <!-- Net Worth Stat Card -->
+                            <div class="summary-stat-card net-worth-stat">
+                                <div class="stat-icon">
+                                    <i data-feather="bar-chart-2"></i>
+                                </div>
+                                <div class="stat-label">Net Worth</div>
+                                <div class="stat-value" id="stat-net-worth-amount">$0.00</div>
+                                <div class="stat-change">
+                                    <i data-feather="arrow-up"></i> 
+                                    <span id="stat-net-worth-change">$0.00</span>
+                                </div>
+                                <div class="stat-note">since last month</div>
+                            </div>
+                        </div>
+
+                        <!-- Main Chart Card -->
+                        <div class="card chart-card">
+                            <div class="card-header">
+                                <h2>Financial Overview</h2>
+                                <div class="card-actions">
+                                    <select id="chart-view-selector" class="form-select">
+                                        <option value="income-expense">Income vs Expenses</option>
+                                        <option value="spending-categories">Spending by Category</option>
+                                        <option value="net-worth-trend">Net Worth Trend</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container" style="height: 350px;">
+                                    <canvas id="main-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Net Worth Card -->
+                        <div class="card net-worth-card">
+                            <div class="card-header">
+                                <h2>Net Worth Details</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="net-worth">
+                                    <h3
+                                        class="net-worth-amount"
+                                        id="net-worth-amount"
+                                    >
+                                        $0.00
+                                    </h3>
+                                    <div
+                                        class="net-worth-change"
+                                        id="net-worth-change"
+                                    >
+                                        <span class="change-value positive">
+                                            <i data-feather="arrow-up"></i>
+                                            +$0.00
+                                        </span>
+                                        <span class="change-period">
+                                            this month
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="net-worth-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Assets</span>
+                                        <span
+                                            class="detail-value"
+                                            id="assets-amount"
+                                            >$0.00</span
+                                        >
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label"
+                                            >Liabilities</span
+                                        >
+                                        <span
+                                            class="detail-value"
+                                            id="liabilities-amount"
+                                            >$0.00</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Financial Health Card -->
+                        <div class="card financial-health-card">
+                            <div class="card-header">
+                                <h2>Financial Health Score</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="financial-health-container">
+                                    <!-- Financial health content will be populated by JavaScript -->
+                                    <div class="financial-health-score good">
+                                        <div class="health-gauge">
+                                            <div class="gauge-value" style="transform: rotate(120deg)"></div>
+                                            <div class="gauge-center">
+                                                <div class="gauge-number">65</div>
+                                            </div>
+                                        </div>
+                                        <div class="health-label">Good</div>
+                                    </div>
+                                    <div class="health-insights">
+                                        <div class="insight">
+                                            <span class="insight-label">Savings Rate:</span>
+                                            <span class="insight-value">18%</span>
+                                        </div>
+                                        <div class="insight">
+                                            <span class="insight-label">Budget Adherence:</span>
+                                            <span class="insight-value">85%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Savings Prediction Card -->
+                        <div class="card savings-prediction-card">
+                            <div class="card-header">
+                                <h2>Savings Prediction</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="savings-prediction-container">
+                                    <!-- Savings prediction content will be populated by JavaScript -->
+                                    <div class="prediction-header">
+                                        <h3>Savings Forecast</h3>
+                                        <div class="total-prediction">6-month projection: $5,400.00</div>
+                                    </div>
+                                    <div class="prediction-bars">
+                                        <!-- Sample prediction bar, will be replaced by JavaScript -->
+                                        <div class="prediction-month">
+                                            <div class="month-label">May '25</div>
+                                            <div class="prediction-bar-container">
+                                                <div class="prediction-bar positive" style="height: 60%"></div>
+                                            </div>
+                                            <div class="prediction-amount">$900.00</div>
+                                            <div class="prediction-percent">25%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Budget Overview Card -->
+                        <div class="card budget-overview-card">
+                            <div class="card-header">
+                                <h2>Budget Overview</h2>
+                                <div class="card-actions">
+                                    <button
+                                        id="add-budget"
+                                        class="btn btn-small"
+                                    >
+                                        <i data-feather="plus"></i> Add Budget
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div
+                                    id="budget-progress-bars"
+                                    class="budget-progress-container"
+                                >
+                                    <div
+                                        class="empty-state"
+                                        id="budget-empty-state"
+                                    >
+                                        <i
+                                            data-feather="pie-chart"
+                                            class="empty-icon"
+                                        ></i>
+                                        <p>No budgets created yet</p>
+                                        <button
+                                            class="btn btn-primary"
+                                            id="create-first-budget"
+                                        >
+                                            Create your first budget
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Transactions Card -->
+                        <div class="card recent-transactions-card">
+                            <div class="card-header">
+                                <h2>Recent Transactions</h2>
+                                <div class="card-actions">
+                                    <button
+                                        id="add-transaction"
+                                        class="btn btn-small"
+                                    >
+                                        <i data-feather="plus"></i> Add
+                                        Transaction
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div
+                                    id="recent-transactions"
+                                    class="transactions-list"
+                                >
+                                    <div
+                                        class="empty-state"
+                                        id="transactions-empty-state"
+                                    >
+                                        <i
+                                            data-feather="credit-card"
+                                            class="empty-icon"
+                                        ></i>
+                                        <p>No transactions yet</p>
+                                        <button
+                                            class="btn btn-primary"
+                                            id="add-first-transaction"
+                                        >
+                                            Add your first transaction
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Bills Card -->
+                        <div class="card upcoming-bills-card">
+                            <div class="card-header">
+                                <h2>Upcoming Bills</h2>
+                                <div class="card-actions">
+                                    <button id="add-bill" class="btn btn-small">
+                                        <i data-feather="plus"></i> Add Bill
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="upcoming-bills" class="bills-list">
+                                    <div
+                                        class="empty-state"
+                                        id="bills-empty-state"
+                                    >
+                                        <i
+                                            data-feather="calendar"
+                                            class="empty-icon"
+                                        ></i>
+                                        <p>No upcoming bills</p>
+                                        <button
+                                            class="btn btn-primary"
+                                            id="add-first-bill"
+                                        >
+                                            Add your first bill
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Financial Goals Card -->
+                        <div class="card financial-goals-card">
+                            <div class="card-header">
+                                <h2>Financial Goals</h2>
+                                <div class="card-actions">
+                                    <button id="add-goal" class="btn btn-small">
+                                        <i data-feather="plus"></i> Add Goal
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="financial-goals" class="goals-list">
+                                    <div
+                                        class="empty-state"
+                                        id="goals-empty-state"
+                                    >
+                                        <i
+                                            data-feather="target"
+                                            class="empty-icon"
+                                        ></i>
+                                        <p>No financial goals yet</p>
+                                        <button
+                                            class="btn btn-primary"
+                                            id="add-first-goal"
+                                        >
+                                            Create your first goal
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Transactions Page -->
+                <section id="transactions-page" class="page-content">
+                    <div class="page-toolbar">
+                        <div class="search-filter">
+                            <div class="search-box">
+                                <i data-feather="search"></i>
+                                <input
+                                    type="text"
+                                    id="transaction-search"
+                                    placeholder="Search transactions..."
+                                />
+                            </div>
+                            <div class="filter-group">
+                                <select
+                                    id="transaction-type-filter"
+                                    class="form-select"
+                                >
+                                    <option value="all">All Types</option>
+                                    <option value="income">Income</option>
+                                    <option value="expense">Expense</option>
+                                    <option value="transfer">Transfer</option>
+                                </select>
+                                <select
+                                    id="transaction-category-filter"
+                                    class="form-select"
+                                >
+                                    <option value="all">All Categories</option>
+                                </select>
+                                <select
+                                    id="transaction-date-filter"
+                                    class="form-select"
+                                >
+                                    <option value="all">All Time</option>
+                                    <option value="current-month">
+                                        Current Month
+                                    </option>
+                                    <option value="last-month">
+                                        Last Month
+                                    </option>
+                                    <option value="last-3-months">
+                                        Last 3 Months
+                                    </option>
+                                    <option value="last-6-months">
+                                        Last 6 Months
+                                    </option>
+                                    <option value="year-to-date">
+                                        Year to Date
+                                    </option>
+                                    <option value="last-year">Last Year</option>
+                                    <option value="custom">Custom Range</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button
+                                id="add-transaction-btn"
+                                class="btn btn-primary"
+                            >
+                                <i data-feather="plus"></i> Add Transaction
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="transactions-container">
+                        <div class="transactions-summary">
+                            <div class="summary-card income">
+                                <h3>Income</h3>
+                                <span id="transactions-income">$0.00</span>
+                            </div>
+                            <div class="summary-card expenses">
+                                <h3>Expenses</h3>
+                                <span id="transactions-expenses">$0.00</span>
+                            </div>
+                            <div class="summary-card balance">
+                                <h3>Net</h3>
+                                <span id="transactions-net">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="transactions-table-wrapper">
+                            <table
+                                class="transactions-table"
+                                id="transactions-table"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactions-table-body">
+                                    <!-- Transactions will be loaded here -->
+                                </tbody>
+                            </table>
+                            <div
+                                class="empty-state"
+                                id="transactions-table-empty-state"
+                            >
+                                <i
+                                    data-feather="credit-card"
+                                    class="empty-icon"
+                                ></i>
+                                <p>No transactions found</p>
+                                <button
+                                    class="btn btn-primary"
+                                    id="add-transaction-empty"
+                                >
+                                    Add your first transaction
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Budgets Page -->
+                <section id="budgets-page" class="page-content">
+                    <div class="page-toolbar">
+                        <div class="filter-group">
+                            <select
+                                id="budget-month-filter"
+                                class="form-select"
+                            >
+                                <option value="current">Current Month</option>
+                                <option value="previous">Previous Month</option>
+                                <option value="next">Next Month</option>
+                            </select>
+                        </div>
+                        <div class="action-buttons">
+                            <button
+                                id="add-budget-category"
+                                class="btn btn-primary"
+                            >
+                                <i data-feather="plus"></i> Add Budget Category
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="budgets-overview">
+                        <div class="budget-summary-cards">
+                            <div class="summary-card">
+                                <h3>Total Budget</h3>
+                                <span id="total-budget-amount">$0.00</span>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Spent So Far</h3>
+                                <span id="spent-budget-amount">$0.00</span>
+                            </div>
+                            <div class="summary-card">
+                                <h3>Remaining</h3>
+                                <span id="remaining-budget-amount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="budget-chart-container">
+                            <canvas id="budget-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="budget-categories-container">
+                        <h2>Budget Categories</h2>
+                        <div id="budget-categories" class="budget-categories">
+                            <div class="empty-state" id="budgets-empty-state">
+                                <i
+                                    data-feather="pie-chart"
+                                    class="empty-icon"
+                                ></i>
+                                <p>No budget categories created yet</p>
+                                <button
+                                    class="btn btn-primary"
+                                    id="create-first-budget-category"
+                                >
+                                    Create your first budget category
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Goals Page -->
+                <section id="goals-page" class="page-content">
+                    <div class="page-toolbar">
+                        <div class="filter-group">
+                            <select id="goals-filter" class="form-select">
+                                <option value="all">All Goals</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="add-goal-btn" class="btn btn-primary">
+                                <i data-feather="plus"></i> Add Goal
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="goals-container">
+                        <div id="goals-list" class="goals-grid">
+                            <div
+                                class="empty-state"
+                                id="goals-page-empty-state"
+                            >
+                                <i data-feather="target" class="empty-icon"></i>
+                                <p>No financial goals created yet</p>
+                                <button
+                                    class="btn btn-primary"
+                                    id="create-first-goal-page"
+                                >
+                                    Create your first financial goal
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bills Page -->
+                <section id="bills-page" class="page-content">
+                    <div class="page-toolbar">
+                        <div class="filter-group">
+                            <select id="bills-time-filter" class="form-select">
+                                <option value="upcoming">Upcoming</option>
+                                <option value="this-month">This Month</option>
+                                <option value="next-month">Next Month</option>
+                                <option value="all">All Bills</option>
+                            </select>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="add-bill-btn" class="btn btn-primary">
+                                <i data-feather="plus"></i> Add Bill
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bills-summary">
+                        <div class="summary-card due-soon">
+                            <h3>Due Soon</h3>
+                            <span id="due-soon-bills-count">0</span>
+                            <span id="due-soon-bills-amount">$0.00</span>
+                        </div>
+                        <div class="summary-card due-this-month">
+                            <h3>This Month</h3>
+                            <span id="this-month-bills-count">0</span>
+                            <span id="this-month-bills-amount">$0.00</span>
+                        </div>
+                        <div class="summary-card overdue">
+                            <h3>Overdue</h3>
+                            <span id="overdue-bills-count">0</span>
+                            <span id="overdue-bills-amount">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="bills-container">
+                        <div class="calendar-view">
+                            <div class="calendar-header">
+                                <button id="prev-month" class="btn btn-icon">
+                                    <i data-feather="chevron-left"></i>
+                                </button>
+                                <h3 id="calendar-month">January 2023</h3>
+                                <button id="next-month" class="btn btn-icon">
+                                    <i data-feather="chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="calendar-grid" id="bills-calendar">
+                                <!-- Calendar will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="bills-list-container">
+                            <h3>Upcoming Bills</h3>
+                            <div id="bills-list" class="bills-list">
+                                <div
+                                    class="empty-state"
+                                    id="bills-page-empty-state"
+                                >
+                                    <i
+                                        data-feather="calendar"
+                                        class="empty-icon"
+                                    ></i>
+                                    <p>No bills created yet</p>
+                                    <button
+                                        class="btn btn-primary"
+                                        id="create-first-bill-page"
+                                    >
+                                        Add your first bill
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Page -->
+                <section id="reports-page" class="page-content">
+                    <div class="page-toolbar">
+                        <div class="filter-group">
+                            <select id="report-type" class="form-select">
+                                <option value="income-vs-expenses">
+                                    Income vs Expenses
+                                </option>
+                                <option value="spending-by-category">
+                                    Spending by Category
+                                </option>
+                                <option value="net-worth-trend">
+                                    Net Worth Trend
+                                </option>
+                                <option value="savings-rate">
+                                    Savings Rate
+                                </option>
+                            </select>
+                            <select id="report-time-period" class="form-select">
+                                <option value="this-month">This Month</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="last-3-months">
+                                    Last 3 Months
+                                </option>
+                                <option value="last-6-months">
+                                    Last 6 Months
+                                </option>
+                                <option value="this-year">This Year</option>
+                                <option value="last-year">Last Year</option>
+                                <option value="all-time">All Time</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="reports-container">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h2 id="report-title">Income vs Expenses</h2>
+                                <div class="report-period" id="report-period">
+                                    January 2023
+                                </div>
+                            </div>
+                            <div class="report-body">
+                                <div class="chart-container">
+                                    <canvas id="report-chart"></canvas>
+                                </div>
+                                <div class="report-summary" id="report-summary">
+                                    <!-- Report summary will be generated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-insights">
+                            <h3>Insights</h3>
+                            <div
+                                id="report-insights-list"
+                                class="insights-list"
+                            >
+                                <div
+                                    class="empty-state"
+                                    id="reports-empty-state"
+                                >
+                                    <i
+                                        data-feather="bar-chart-2"
+                                        class="empty-icon"
+                                    ></i>
+                                    <p>
+                                        Add transactions to see financial
+                                        insights
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Page -->
+                <section id="settings-page" class="page-content">
+                    <div class="settings-container">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Profile Settings</h2>
+                            </div>
+                            <div class="card-body">
+                                <form id="profile-settings-form">
+                                    <div class="form-group">
+                                        <label for="currency">Currency</label>
+                                        <select
+                                            id="currency"
+                                            class="form-select"
+                                        >
+                                            <option value="USD">
+                                                USD - US Dollar
+                                            </option>
+                                            <option value="EUR">
+                                                EUR - Euro
+                                            </option>
+                                            <option value="GBP">
+                                                GBP - British Pound
+                                            </option>
+                                            <option value="CAD">
+                                                CAD - Canadian Dollar
+                                            </option>
+                                            <option value="AUD">
+                                                AUD - Australian Dollar
+                                            </option>
+                                            <option value="JPY">
+                                                JPY - Japanese Yen
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date-format"
+                                            >Date Format</label
+                                        >
+                                        <select
+                                            id="date-format"
+                                            class="form-select"
+                                        >
+                                            <option value="MM/DD/YYYY">
+                                                MM/DD/YYYY
+                                            </option>
+                                            <option value="DD/MM/YYYY">
+                                                DD/MM/YYYY
+                                            </option>
+                                            <option value="YYYY-MM-DD">
+                                                YYYY-MM-DD
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-primary"
+                                        >
+                                            Save Changes
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Categories</h2>
+                                <div class="card-actions">
+                                    <button
+                                        id="add-category"
+                                        class="btn btn-small"
+                                    >
+                                        <i data-feather="plus"></i> Add Category
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="categories-container">
+                                    <div class="category-group">
+                                        <h3>Income Categories</h3>
+                                        <ul
+                                            id="income-categories"
+                                            class="categories-list"
+                                        >
+                                            <!-- Income categories will be loaded here -->
+                                        </ul>
+                                    </div>
+                                    <div class="category-group">
+                                        <h3>Expense Categories</h3>
+                                        <ul
+                                            id="expense-categories"
+                                            class="categories-list"
+                                        >
+                                            <!-- Expense categories will be loaded here -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Data Management</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="data-actions">
+                                    <div class="data-action">
+                                        <h3>Export Data</h3>
+                                        <p>
+                                            Download all your financial data as
+                                            a JSON or CSV file.
+                                        </p>
+                                        <div class="action-buttons">
+                                            <button
+                                                id="export-json"
+                                                class="btn btn-secondary"
+                                            >
+                                                Export as JSON
+                                            </button>
+                                            <button
+                                                id="export-csv"
+                                                class="btn btn-secondary"
+                                            >
+                                                Export as CSV
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="data-action">
+                                        <h3>Import Data</h3>
+                                        <p>Import previously exported data.</p>
+                                        <div class="action-buttons">
+                                            <button
+                                                id="import-data"
+                                                class="btn btn-secondary"
+                                            >
+                                                Import Data
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="data-action danger-zone">
+                                        <h3>Reset Data</h3>
+                                        <p>
+                                            Warning: This will delete all your
+                                            financial data and cannot be undone.
+                                        </p>
+                                        <div class="action-buttons">
+                                            <button
+                                                id="reset-data"
+                                                class="btn btn-danger"
+                                            >
+                                                Reset All Data
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Modals -->
+        <!-- Add Transaction Modal -->
+        <div id="add-transaction-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="transaction-modal-title">Add Transaction</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="transaction-form">
+                        <input type="hidden" id="transaction-id" />
+                        <div class="form-group">
+                            <label for="transaction-type"
+                                >Transaction Type</label
+                            >
+                            <select
+                                id="transaction-type"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">Select Type</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                                <option value="transfer">Transfer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-date">Date</label>
+                            <input
+                                type="date"
+                                id="transaction-date"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-amount">Amount</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input
+                                    type="number"
+                                    id="transaction-amount"
+                                    class="form-input"
+                                    step="0.01"
+                                    min="0.01"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-category">Category</label>
+                            <select
+                                id="transaction-category"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-description"
+                                >Description</label
+                            >
+                            <input
+                                type="text"
+                                id="transaction-description"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-notes"
+                                >Notes (Optional)</label
+                            >
+                            <textarea
+                                id="transaction-notes"
+                                class="form-textarea"
+                            ></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button
+                                type="button"
+                                class="btn btn-secondary cancel-modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Transaction
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Budget Modal -->
+        <div id="add-budget-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="budget-modal-title">Add Budget Category</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="budget-form">
+                        <input type="hidden" id="budget-id" />
+                        <div class="form-group">
+                            <label for="budget-category">Category</label>
+                            <select
+                                id="budget-category"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget-amount"
+                                >Monthly Budget Amount</label
+                            >
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input
+                                    type="number"
+                                    id="budget-amount"
+                                    class="form-input"
+                                    step="0.01"
+                                    min="0.01"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button
+                                type="button"
+                                class="btn btn-secondary cancel-modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Budget
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Bill Modal -->
+        <div id="add-bill-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="bill-modal-title">Add Bill</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="bill-form">
+                        <input type="hidden" id="bill-id" />
+                        <div class="form-group">
+                            <label for="bill-name">Bill Name</label>
+                            <input
+                                type="text"
+                                id="bill-name"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-amount">Amount</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input
+                                    type="number"
+                                    id="bill-amount"
+                                    class="form-input"
+                                    step="0.01"
+                                    min="0.01"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-due-date">Due Date</label>
+                            <input
+                                type="date"
+                                id="bill-due-date"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-category">Category</label>
+                            <select
+                                id="bill-category"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-repeat">Repeat</label>
+                            <select id="bill-repeat" class="form-select">
+                                <option value="never">Never</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="annually">Annually</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bill-reminder">Reminder</label>
+                            <select id="bill-reminder" class="form-select">
+                                <option value="none">None</option>
+                                <option value="day-of">Day of</option>
+                                <option value="1-day">1 day before</option>
+                                <option value="3-days">3 days before</option>
+                                <option value="1-week">1 week before</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button
+                                type="button"
+                                class="btn btn-secondary cancel-modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Bill
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Goal Modal -->
+        <div id="add-goal-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="goal-modal-title">Add Financial Goal</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="goal-form">
+                        <input type="hidden" id="goal-id" />
+                        <div class="form-group">
+                            <label for="goal-name">Goal Name</label>
+                            <input
+                                type="text"
+                                id="goal-name"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-type">Goal Type</label>
+                            <select id="goal-type" class="form-select" required>
+                                <option value="savings">Savings</option>
+                                <option value="debt-repayment">
+                                    Debt Repayment
+                                </option>
+                                <option value="purchase">Major Purchase</option>
+                                <option value="emergency-fund">
+                                    Emergency Fund
+                                </option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-target-amount"
+                                >Target Amount</label
+                            >
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input
+                                    type="number"
+                                    id="goal-target-amount"
+                                    class="form-input"
+                                    step="0.01"
+                                    min="0.01"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-current-amount"
+                                >Current Amount</label
+                            >
+                            <div class="input-with-icon">
+                                <span class="input-icon">$</span>
+                                <input
+                                    type="number"
+                                    id="goal-current-amount"
+                                    class="form-input"
+                                    step="0.01"
+                                    min="0"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-target-date">Target Date</label>
+                            <input
+                                type="date"
+                                id="goal-target-date"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="goal-notes">Notes (Optional)</label>
+                            <textarea
+                                id="goal-notes"
+                                class="form-textarea"
+                            ></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button
+                                type="button"
+                                class="btn btn-secondary cancel-modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Goal
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Category Modal -->
+        <div id="add-category-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="category-modal-title">Add Category</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="category-form">
+                        <input type="hidden" id="category-id" />
+                        <div class="form-group">
+                            <label for="category-name">Category Name</label>
+                            <input
+                                type="text"
+                                id="category-name"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="category-type">Category Type</label>
+                            <select
+                                id="category-type"
+                                class="form-select"
+                                required
+                            >
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-color">Color</label>
+                            <input
+                                type="color"
+                                id="category-color"
+                                class="form-color-input"
+                            />
+                        </div>
+                        <div class="form-actions">
+                            <button
+                                type="button"
+                                class="btn btn-secondary cancel-modal"
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Category
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmation-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="confirmation-title">Confirm Action</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="confirmation-message">
+                        Are you sure you want to proceed?
+                    </p>
+                    <div class="form-actions">
+                        <button
+                            type="button"
+                            class="btn btn-secondary cancel-modal"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            id="confirm-action"
+                            class="btn btn-danger"
+                        >
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification System -->
+        <div id="notification-container" class="notification-container"></div>
+
+        <!-- JavaScript -->
+        <script src="js/utils.js"></script>
+        <script src="js/storage.js"></script>
+        <script src="js/transactions.js"></script>
+        <script src="js/budgets.js"></script>
+        <script src="js/bills.js"></script>
+        <script src="js/goals.js"></script>
+        <script src="js/reports.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/dataExport.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

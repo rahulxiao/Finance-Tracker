@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Income Recording</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="dollar-sign"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Income Recording</h2>
+                    <p>Track and manage all your income sources</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Manage Your Income</h3>
+                    <p>Keep track of all your income streams in one place. Whether it's your primary salary, side hustle, investments, or any other sources of income, FinanceFlow makes it easy to record and monitor your earnings.</p>
+                    
+                    <div class="action-card">
+                        <h4>Add Income</h4>
+                        <p>Record a new income transaction from any source.</p>
+                        <button class="btn btn-primary" disabled>Add Income</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Manage Income Sources</h4>
+                        <p>Create and manage different income sources for better categorization.</p>
+                        <button class="btn btn-secondary" disabled>Manage Sources</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Recurring Income</h4>
+                        <p>Set up recurring income entries for regular payments like salary.</p>
+                        <button class="btn btn-outline" disabled>Set Recurring</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Income Sources</h3>
+                    <div class="income-sources-list">
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i data-feather="briefcase"></i>
+                            </div>
+                            <div class="source-details">
+                                <div class="source-name">Primary Employment</div>
+                                <div class="source-description">Regular salary from main job</div>
+                            </div>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i data-feather="layers"></i>
+                            </div>
+                            <div class="source-details">
+                                <div class="source-name">Freelance Work</div>
+                                <div class="source-description">Contract and project-based income</div>
+                            </div>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i data-feather="trending-up"></i>
+                            </div>
+                            <div class="source-details">
+                                <div class="source-name">Investments</div>
+                                <div class="source-description">Dividends, interest, and capital gains</div>
+                            </div>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i data-feather="home"></i>
+                            </div>
+                            <div class="source-details">
+                                <div class="source-name">Rental Income</div>
+                                <div class="source-description">Income from property rentals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Income Analysis</h3>
+                    <div class="income-summary">
+                        <div class="summary-card">
+                            <div class="summary-title">Monthly Income</div>
+                            <div class="summary-value">$0.00</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-title">Yearly Income</div>
+                            <div class="summary-value">$0.00</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-title">Income Sources</div>
+                            <div class="summary-value">0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="analysis-placeholder">
+                        <div class="chart-placeholder">
+                            <div class="placeholder-title">Monthly Income Trend</div>
+                            <div class="placeholder-chart">
+                                <div class="chart-bar" style="height: 60%;"></div>
+                                <div class="chart-bar" style="height: 75%;"></div>
+                                <div class="chart-bar" style="height: 45%;"></div>
+                                <div class="chart-bar" style="height: 90%;"></div>
+                                <div class="chart-bar" style="height: 65%;"></div>
+                                <div class="chart-bar" style="height: 80%;"></div>
+                            </div>
+                            <div class="placeholder-legend">
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-placeholder">
+                            <div class="placeholder-title">Income Distribution</div>
+                            <div class="income-distribution-chart">
+                                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#CED4DA" stroke-width="40" />
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#3498DB" stroke-width="40" stroke-dasharray="150 400" />
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2ECC71" stroke-width="40" stroke-dasharray="100 400" stroke-dashoffset="-150" />
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#F1C40F" stroke-width="40" stroke-dasharray="50 400" stroke-dashoffset="-250" />
+                                </svg>
+                            </div>
+                            <div class="distribution-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color primary"></div>
+                                    <div class="legend-label">Primary Job: 0%</div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color secondary"></div>
+                                    <div class="legend-label">Freelance: 0%</div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color tertiary"></div>
+                                    <div class="legend-label">Investments: 0%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/features.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Initialize income summary with real data
+            const transactions = Storage.getTransactions();
+            if (transactions.length > 0) {
+                // Filter income transactions
+                const incomeTransactions = transactions.filter(t => t.type === 'income');
+                
+                // Calculate monthly and yearly income
+                const today = new Date();
+                const currentMonth = today.getMonth();
+                const currentYear = today.getFullYear();
+                
+                const monthlyIncome = incomeTransactions
+                    .filter(t => {
+                        const date = new Date(t.date);
+                        return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
+                    })
+                    .reduce((sum, t) => sum + parseFloat(t.amount), 0);
+                
+                const yearlyIncome = incomeTransactions
+                    .filter(t => {
+                        const date = new Date(t.date);
+                        return date.getFullYear() === currentYear;
+                    })
+                    .reduce((sum, t) => sum + parseFloat(t.amount), 0);
+                
+                // Update summary cards
+                const summaryCards = document.querySelectorAll('.summary-card .summary-value');
+                if (summaryCards.length >= 3) {
+                    summaryCards[0].textContent = `$${monthlyIncome.toFixed(2)}`;
+                    summaryCards[1].textContent = `$${yearlyIncome.toFixed(2)}`;
+                    
+                    // Get unique income sources
+                    const categories = Storage.getCategories();
+                    const incomeCategories = categories.filter(c => c.type === 'income');
+                    summaryCards[2].textContent = incomeCategories.length.toString();
+                }
+            }
+            
+            // Enable the Set Recurring button
+            const setRecurringBtn = document.querySelector('.action-card .btn-outline');
+            if (setRecurringBtn) {
+                setRecurringBtn.disabled = false;
+                setRecurringBtn.addEventListener('click', function() {
+                    window.location.href = 'index.html?page=bills&action=add&type=income';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

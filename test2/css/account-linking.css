@@ -1,0 +1,354 @@
+/* Account Linking Page Specific Styles */
+
+.account-linking-header {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.account-linking-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--info-color), var(--primary-color));
+}
+
+.account-linking-header h2 {
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.account-linking-header p {
+    color: var(--dark-gray);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.security-notice {
+    display: flex;
+    background-color: rgba(23, 162, 184, 0.1);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    align-items: flex-start;
+    border: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+.security-icon {
+    margin-right: var(--spacing-lg);
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(23, 162, 184, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.security-icon i {
+    color: var(--info-color);
+    width: 24px;
+    height: 24px;
+}
+
+.security-content h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--info-color);
+    font-weight: 600;
+}
+
+.security-content p {
+    margin-bottom: var(--spacing-md);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.security-content ul {
+    list-style-type: disc;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.security-content ul li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+}
+
+.institutions-section h3 {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.institutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.institution-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.institution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.institution-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.institution-card:hover .institution-logo {
+    transform: scale(1.1);
+}
+
+.institution-logo i {
+    width: 36px;
+    height: 36px;
+    color: var(--white);
+}
+
+.institution-logo.bank {
+    background: linear-gradient(135deg, #3498DB, #1ABC9C);
+}
+
+.institution-logo.investment {
+    background: linear-gradient(135deg, #2ECC71, #27AE60);
+}
+
+.institution-logo.fintech {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.institution-logo.loans {
+    background: linear-gradient(135deg, #ec4899, #e74c3c);
+}
+
+.institution-card h4 {
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.institution-card p {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.connect-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--white);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: var(--spacing-sm);
+}
+
+.connect-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.connect-button i {
+    font-size: 1rem;
+}
+
+.benefits-section h3 {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+    margin-right: var(--spacing-lg);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+    transform: scale(1.1);
+    background-color: rgba(99, 102, 241, 0.2);
+}
+
+.benefit-icon i {
+    color: var(--primary-color);
+    width: 24px;
+    height: 24px;
+}
+
+.benefit-content h4 {
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.benefit-content p {
+    color: var(--dark-gray);
+    line-height: 1.5;
+}
+
+.faq-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.faq-section h3 {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.faq-item {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Dark Mode Adaptations */
+.dark-theme .security-notice {
+    background-color: rgba(23, 162, 184, 0.05);
+    border-color: rgba(23, 162, 184, 0.15);
+}
+
+.dark-theme .security-icon {
+    background-color: rgba(23, 162, 184, 0.15);
+}
+
+/* Responsive Adaptations */
+@media screen and (max-width: 768px) {
+    .security-notice {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .security-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .benefit-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .institutions-grid {
+        grid-template-columns: 1fr;
+    }
+}

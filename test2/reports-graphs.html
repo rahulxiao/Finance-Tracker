@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Reports & Graphs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="bar-chart-2"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Reports & Graphs</h2>
+                    <p>Visualize your financial data through interactive graphs</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Financial Reports</h3>
+                    <p>Generate detailed reports to gain insights into your financial health, identify trends, and make informed decisions about your money.</p>
+                    
+                    <div class="report-filters">
+                        <div class="filter-group">
+                            <label for="report-type">Report Type</label>
+                            <select id="report-type" class="form-select" disabled>
+                                <option value="income-expenses">Income vs Expenses</option>
+                                <option value="spending-categories">Spending by Category</option>
+                                <option value="net-worth">Net Worth Trend</option>
+                                <option value="savings-rate">Savings Rate</option>
+                                <option value="debt-payoff">Debt Payoff Progress</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="time-period">Time Period</label>
+                            <select id="time-period" class="form-select" disabled>
+                                <option value="this-month">This Month</option>
+                                <option value="last-month">Last Month</option>
+                                <option value="last-3-months">Last 3 Months</option>
+                                <option value="last-6-months">Last 6 Months</option>
+                                <option value="this-year">This Year</option>
+                                <option value="last-year">Last Year</option>
+                                <option value="custom">Custom Range</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn btn-primary" disabled>Generate Report</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Reports Preview</h3>
+                    <div class="report-preview">
+                        <div class="chart-container">
+                            <div class="chart-title">Income vs Expenses</div>
+                            <div class="chart-placeholder">
+                                <div class="bar-chart">
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 70%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 40%;" title="Expenses: $0"></div>
+                                        <div class="month-label">Jan</div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 80%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 60%;" title="Expenses: $0"></div>
+                                        <div class="month-label">Feb</div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 65%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 45%;" title="Expenses: $0"></div>
+                                        <div class="month-label">Mar</div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 90%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 70%;" title="Expenses: $0"></div>
+                                        <div class="month-label">Apr</div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 75%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 50%;" title="Expenses: $0"></div>
+                                        <div class="month-label">May</div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar income" style="height: 85%;" title="Income: $0"></div>
+                                        <div class="bar expense" style="height: 55%;" title="Expenses: $0"></div>
+                                        <div class="month-label">Jun</div>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color income"></div>
+                                        <div class="legend-label">Income</div>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color expense"></div>
+                                        <div class="legend-label">Expenses</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="report-insights">
+                            <h4>Financial Insights</h4>
+                            <ul class="insights-list">
+                                <li>Your total income shows an increasing trend over the past 6 months.</li>
+                                <li>Expenses have remained relatively stable, averaging around 60% of income.</li>
+                                <li>Your savings rate has been highest in April at approximately 30%.</li>
+                                <li>Consider reviewing your February expenses, which were higher than average.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Available Report Types</h3>
+                    <div class="report-types-grid">
+                        <div class="report-type-card">
+                            <div class="report-type-icon">
+                                <i data-feather="trending-up"></i>
+                            </div>
+                            <h4>Income vs Expenses</h4>
+                            <p>Compare your monthly income and expenses to track your overall financial health.</p>
+                        </div>
+                        
+                        <div class="report-type-card">
+                            <div class="report-type-icon">
+                                <i data-feather="pie-chart"></i>
+                            </div>
+                            <h4>Spending by Category</h4>
+                            <p>Analyze your spending patterns across different categories to identify areas for improvement.</p>
+                        </div>
+                        
+                        <div class="report-type-card">
+                            <div class="report-type-icon">
+                                <i data-feather="dollar-sign"></i>
+                            </div>
+                            <h4>Net Worth Trend</h4>
+                            <p>Track your net worth over time to see how your overall financial position is changing.</p>
+                        </div>
+                        
+                        <div class="report-type-card">
+                            <div class="report-type-icon">
+                                <i data-feather="save"></i>
+                            </div>
+                            <h4>Savings Rate</h4>
+                            <p>Monitor your savings rate to ensure you're setting aside enough for your future goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

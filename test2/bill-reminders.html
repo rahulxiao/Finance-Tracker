@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Bill Reminders</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="bell"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Bill Reminders</h2>
+                    <p>Never miss a payment with scheduled bill reminders</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Manage Your Bills</h3>
+                    <p>Stay on top of your financial obligations with our comprehensive bill management system. Set up recurring reminders for all your bills to avoid late fees and maintain a strong credit score.</p>
+                    
+                    <div class="action-card">
+                        <h4>Add New Bill</h4>
+                        <p>Set up a new bill with payment schedule, amount, and notification preferences.</p>
+                        <button class="btn btn-primary" disabled>Add Bill</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Recurring Bills</h4>
+                        <p>Set up recurring payments for regular bills like rent, utilities, and subscriptions.</p>
+                        <button class="btn btn-secondary" disabled>Manage Recurring Bills</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Notification Settings</h4>
+                        <p>Customize when and how you receive bill payment reminders.</p>
+                        <button class="btn btn-outline" disabled>Notification Preferences</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Upcoming Bills</h3>
+                    <div class="calendar-view">
+                        <div class="calendar-header">
+                            <div class="calendar-navigation">
+                                <button class="btn-icon-only" disabled><i data-feather="chevron-left"></i></button>
+                                <h4>April 2025</h4>
+                                <button class="btn-icon-only" disabled><i data-feather="chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days">
+                                <div class="day prev-month">30</div>
+                                <div class="day prev-month">31</div>
+                                <div class="day">1</div>
+                                <div class="day">2</div>
+                                <div class="day">3</div>
+                                <div class="day">4</div>
+                                <div class="day">5</div>
+                                <div class="day">6</div>
+                                <div class="day">7</div>
+                                <div class="day active">8</div>
+                                <div class="day">9</div>
+                                <div class="day">10</div>
+                                <div class="day has-bill">11</div>
+                                <div class="day">12</div>
+                                <div class="day">13</div>
+                                <div class="day">14</div>
+                                <div class="day has-bill">15</div>
+                                <div class="day">16</div>
+                                <div class="day">17</div>
+                                <div class="day">18</div>
+                                <div class="day">19</div>
+                                <div class="day">20</div>
+                                <div class="day">21</div>
+                                <div class="day">22</div>
+                                <div class="day">23</div>
+                                <div class="day">24</div>
+                                <div class="day has-bill">25</div>
+                                <div class="day">26</div>
+                                <div class="day">27</div>
+                                <div class="day">28</div>
+                                <div class="day">29</div>
+                                <div class="day">30</div>
+                                <div class="day next-month">1</div>
+                                <div class="day next-month">2</div>
+                                <div class="day next-month">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Bill Summary</h3>
+                    <div class="bills-list">
+                        <div class="bill-item">
+                            <div class="bill-date">11</div>
+                            <div class="bill-details">
+                                <div class="bill-name">Electricity Bill</div>
+                                <div class="bill-amount">$0.00</div>
+                            </div>
+                            <div class="bill-status">
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bill-item">
+                            <div class="bill-date">15</div>
+                            <div class="bill-details">
+                                <div class="bill-name">Rent Payment</div>
+                                <div class="bill-amount">$0.00</div>
+                            </div>
+                            <div class="bill-status">
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bill-item">
+                            <div class="bill-date">25</div>
+                            <div class="bill-details">
+                                <div class="bill-name">Internet Service</div>
+                                <div class="bill-amount">$0.00</div>
+                            </div>
+                            <div class="bill-status">
+                                <span class="status-badge pending">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/bills.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/features.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Setup notification preferences button
+            const notificationBtn = document.querySelector('.action-card .btn-outline');
+            if (notificationBtn) {
+                notificationBtn.disabled = false;
+                notificationBtn.addEventListener('click', function() {
+                    window.location.href = 'index.html?page=settings&section=notifications';
+                });
+            }
+            
+            // Setup calendar navigation
+            const calendarNavBtns = document.querySelectorAll('.calendar-navigation .btn-icon-only');
+            if (calendarNavBtns.length === 2) {
+                // Enable prev/next month buttons
+                calendarNavBtns[0].disabled = false; // Previous month
+                calendarNavBtns[1].disabled = false; // Next month
+                
+                // Previous month button
+                calendarNavBtns[0].addEventListener('click', function() {
+                    if (typeof Bills !== 'undefined' && Bills.navigateCalendar) {
+                        Bills.navigateCalendar(-1);
+                    } else {
+                        // Fallback if Bills module not loaded
+                        if (typeof Utils !== 'undefined' && Utils.showNotification) {
+                            Utils.showNotification('Calendar navigation will be available in the next update!', 'info');
+                        }
+                    }
+                });
+                
+                // Next month button
+                calendarNavBtns[1].addEventListener('click', function() {
+                    if (typeof Bills !== 'undefined' && Bills.navigateCalendar) {
+                        Bills.navigateCalendar(1);
+                    } else {
+                        // Fallback if Bills module not loaded
+                        if (typeof Utils !== 'undefined' && Utils.showNotification) {
+                            Utils.showNotification('Calendar navigation will be available in the next update!', 'info');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

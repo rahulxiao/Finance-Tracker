@@ -1,0 +1,364 @@
+/* Responsive Styles */
+@media screen and (max-width: 1199px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reports-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-header-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .bills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-container {
+        flex-direction: column;
+    }
+
+    .search-filter {
+        flex-direction: column;
+    }
+
+    .search-box {
+        max-width: none;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .action-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .mobile-only {
+        display: flex;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 1100;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .page-toolbar {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .form-select {
+        width: 100%;
+    }
+
+    .action-buttons {
+        width: 100%;
+    }
+
+    .action-buttons .btn {
+        width: 100%;
+    }
+
+    .budget-summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .budget-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .transactions-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .transactions-summary {
+        flex-direction: column;
+    }
+
+    .summary-card {
+        width: 100%;
+    }
+
+    .monthly-summary {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .notification-container {
+        width: 90%;
+        right: 5%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .feature-header {
+        padding: var(--spacing-lg);
+    }
+    
+    .action-card h4::before {
+        display: none;
+    }
+    
+    .action-card h4 {
+        position: relative;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .page-content {
+        padding: var(--spacing-sm);
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .card-actions {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .transaction-item,
+    .bill-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .transaction-amount,
+    .bill-amount {
+        margin-top: var(--spacing-sm);
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .calendar-day {
+        height: 70px;
+    }
+
+    .modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-icon i {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .feature-header-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-header-icon i {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .back-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .categories-list,
+    .income-sources-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-card {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Portrait Phones */
+@media screen and (max-width: 375px) {
+    .main-content {
+        padding: var(--spacing-md);
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-md);
+    }
+    
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Landscape Orientation */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .sidebar {
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .feature-header {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .feature-header-icon {
+        margin-right: var(--spacing-md);
+        margin-bottom: 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .sidebar,
+    .page-toolbar,
+    .action-buttons,
+    .card-actions,
+    .form-actions,
+    .btn,
+    .notification-container {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .page-content {
+        display: block !important;
+    }
+
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--light-gray);
+    }
+
+    .transactions-table th,
+    .transactions-table td {
+        font-size: 10pt;
+    }
+
+    body {
+        font-size: 11pt;
+        background-color: var(--white);
+    }
+
+    h1 {
+        font-size: 16pt;
+    }
+
+    h2 {
+        font-size: 14pt;
+    }
+
+    h3 {
+        font-size: 12pt;
+    }
+
+    .chart-container {
+        max-height: 3in;
+    }
+    
+    .feature-header::before,
+    .feature-card::after {
+        display: none;
+    }
+}

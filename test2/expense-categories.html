@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Expense Categories</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet"
+    />
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/features.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle mobile-only">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="tag"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Expense Categories</h2>
+                    <p>Organize your spending with customizable categories</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Expense Categorization</h3>
+                    <p>Categorizing your expenses helps you understand where your money goes and identify areas where you can cut back. FinanceFlow provides a comprehensive set of predefined categories and allows you to create custom ones to match your unique spending habits.</p>
+                    
+                    <div class="action-card">
+                        <h4>Add Category</h4>
+                        <p>Create a new custom expense category with a unique color and icon.</p>
+                        <button class="btn btn-primary" disabled>Create Category</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Manage Categories</h4>
+                        <p>Edit, merge, or delete existing expense categories.</p>
+                        <button class="btn btn-secondary" disabled>Manage Categories</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Auto-Categorization</h4>
+                        <p>Set up rules to automatically categorize transactions based on keywords.</p>
+                        <button class="btn btn-outline" disabled>Setup Rules</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Default Categories</h3>
+                    <div class="categories-list">
+                        <!-- Housing -->
+                        <div class="category-item">
+                            <div class="category-icon housing">
+                                <i data-feather="home"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Housing</div>
+                                <div class="category-description">Rent, mortgage, property taxes, repairs</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Transportation -->
+                        <div class="category-item">
+                            <div class="category-icon transportation">
+                                <i data-feather="truck"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Transportation</div>
+                                <div class="category-description">Car payments, gas, public transit, maintenance</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Food -->
+                        <div class="category-item">
+                            <div class="category-icon food">
+                                <i data-feather="coffee"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Food</div>
+                                <div class="category-description">Groceries, dining out, takeout</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Utilities -->
+                        <div class="category-item">
+                            <div class="category-icon utilities">
+                                <i data-feather="zap"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Utilities</div>
+                                <div class="category-description">Electricity, water, gas, internet, phone</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Healthcare -->
+                        <div class="category-item">
+                            <div class="category-icon healthcare">
+                                <i data-feather="heart"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Healthcare</div>
+                                <div class="category-description">Insurance, doctor visits, medications</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Entertainment -->
+                        <div class="category-item">
+                            <div class="category-icon entertainment">
+                                <i data-feather="film"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Entertainment</div>
+                                <div class="category-description">Movies, concerts, subscriptions, hobbies</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Shopping -->
+                        <div class="category-item">
+                            <div class="category-icon shopping">
+                                <i data-feather="shopping-bag"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Shopping</div>
+                                <div class="category-description">Clothing, electronics, household items</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Care -->
+                        <div class="category-item">
+                            <div class="category-icon personal">
+                                <i data-feather="user"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Personal Care</div>
+                                <div class="category-description">Haircuts, gym memberships, beauty products</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education -->
+                        <div class="category-item">
+                            <div class="category-icon education">
+                                <i data-feather="book"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Education</div>
+                                <div class="category-description">Tuition, books, courses, student loans</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Travel -->
+                        <div class="category-item">
+                            <div class="category-icon travel">
+                                <i data-feather="map"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Travel</div>
+                                <div class="category-description">Vacations, flights, hotels, activities</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Gifts & Donations -->
+                        <div class="category-item">
+                            <div class="category-icon gifts">
+                                <i data-feather="gift"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Gifts & Donations</div>
+                                <div class="category-description">Presents, charitable contributions</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Miscellaneous -->
+                        <div class="category-item">
+                            <div class="category-icon misc">
+                                <i data-feather="box"></i>
+                            </div>
+                            <div class="category-details">
+                                <div class="category-name">Miscellaneous</div>
+                                <div class="category-description">Other expenses that don't fit elsewhere</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Category Benefits</h3>
+                    <ul class="benefits-bullets">
+                        <li><strong>Better Budgeting:</strong> Understand exactly how much you spend in each area of your life.</li>
+                        <li><strong>Spending Analysis:</strong> Identify trends and patterns in your spending habits.</li>
+                        <li><strong>Focused Saving:</strong> Target specific categories for spending reductions to reach your financial goals.</li>
+                        <li><strong>Tax Preparation:</strong> Easily identify tax-deductible expenses when filing your taxes.</li>
+                        <li><strong>Financial Planning:</strong> Make more informed decisions about your future financial needs.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/features.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // Sidebar toggle for mobile
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar) {
+                        sidebar.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Setup auto-categorization button
+            const autoRulesBtn = document.querySelector('.action-card .btn-outline');
+            if (autoRulesBtn) {
+                autoRulesBtn.disabled = false;
+                autoRulesBtn.addEventListener('click', function() {
+                    window.location.href = 'index.html?page=settings&section=auto_rules';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
