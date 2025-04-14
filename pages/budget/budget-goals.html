@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Budget Goals</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../budget/css/budget.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Header -->
+        <header class="mobile-header mobile-only">
+            <h1>FinanceFlow</h1>
+            <button id="sidebar-toggle" class="sidebar-toggle">
+                <i data-feather="menu"></i>
+            </button>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>FinanceFlow</h1>
+                <button id="sidebar-close" class="sidebar-close mobile-only">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <ul class="sidebar-menu">
+                <li data-page="dashboard">
+                    <a href="index.html"><i data-feather="home"></i> Dashboard</a>
+                </li>
+                <li data-page="features" class="active">
+                    <a href="features.html"><i data-feather="grid"></i> Features</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="back-button" onclick="window.location.href='../auth/features.html'">
+                <i data-feather="arrow-left"></i> Back to Features
+            </div>
+            
+            <div class="feature-header">
+                <div class="feature-header-icon">
+                    <i data-feather="target"></i>
+                </div>
+                <div class="feature-header-content">
+                    <h2>Budget Goals</h2>
+                    <p>Set and track your financial budget goals</p>
+                </div>
+            </div>
+
+            <div class="feature-content">
+                <div class="content-section">
+                    <h3>Create Personalized Budget Goals</h3>
+                    <p>Setting clear, achievable budget goals is the cornerstone of financial success. Create customized budget targets for different categories and timeframes based on your unique financial situation.</p>
+                    
+                    <div class="action-card">
+                        <h4>Create Monthly Budget</h4>
+                        <p>Set up a comprehensive monthly budget across all spending categories.</p>
+                        <button class="btn btn-primary" disabled>Create Budget</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Category-Specific Budgets</h4>
+                        <p>Set targeted spending limits for particular categories like dining out or entertainment.</p>
+                        <button class="btn btn-secondary" disabled>Set Category Budgets</button>
+                    </div>
+                    
+                    <div class="action-card">
+                        <h4>Budget Templates</h4>
+                        <p>Use pre-defined budget templates or create your own custom templates.</p>
+                        <button class="btn btn-outline">Browse Templates</button>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Budget Progress Tracking</h3>
+                    <div class="budget-progress-container">
+                        <div class="budget-progress-item">
+                            <div class="progress-header">
+                                <div class="progress-title">Overall Budget</div>
+                                <div class="progress-stats">$0 / $0</div>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="progress-info">0% spent</div>
+                        </div>
+                        
+                        <div class="budget-progress-item">
+                            <div class="progress-header">
+                                <div class="progress-title">Groceries</div>
+                                <div class="progress-stats">$0 / $0</div>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="progress-info">0% spent</div>
+                        </div>
+                        
+                        <div class="budget-progress-item">
+                            <div class="progress-header">
+                                <div class="progress-title">Transportation</div>
+                                <div class="progress-stats">$0 / $0</div>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="progress-info">0% spent</div>
+                        </div>
+                        
+                        <div class="budget-progress-item">
+                            <div class="progress-header">
+                                <div class="progress-title">Entertainment</div>
+                                <div class="progress-stats">$0 / $0</div>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div class="progress-info">0% spent</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>Budget Tips</h3>
+                    <div class="budget-tips">
+                        <div class="tip-card">
+                            <div class="tip-icon">💡</div>
+                            <div class="tip-content">
+                                <h4>50/30/20 Rule</h4>
+                                <p>Allocate 50% of your income to needs, 30% to wants, and 20% to savings and debt repayment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-icon">💡</div>
+                            <div class="tip-content">
+                                <h4>Zero-Based Budgeting</h4>
+                                <p>Assign every dollar a job so that income minus expenses equals zero.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-icon">💡</div>
+                            <div class="tip-content">
+                                <h4>Envelope System</h4>
+                                <p>Allocate cash to different spending categories and stop when the envelope is empty.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-icon">💡</div>
+                            <div class="tip-content">
+                                <h4>Review Regularly</h4>
+                                <p>Review your budget at least once a month and adjust as needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button id="darkModeToggle">🌓</button>
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- JavaScript -->
+    <script src="../budget/js/budget.js"></script>
+</body>
+</html>

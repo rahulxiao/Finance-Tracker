@@ -7,6 +7,16 @@
     .reports-container {
         grid-template-columns: 1fr;
     }
+    
+    .feature-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-header-icon {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+    }
 }
 
 @media screen and (max-width: 991px) {
@@ -32,6 +42,14 @@
 
     .search-box {
         max-width: none;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .action-card {
+        padding: var(--spacing-lg);
     }
 }
 
@@ -131,6 +149,27 @@
         width: 90%;
         right: 5%;
     }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .feature-header {
+        padding: var(--spacing-lg);
+    }
+    
+    .action-card h4::before {
+        display: none;
+    }
+    
+    .action-card h4 {
+        position: relative;
+        padding-left: 0;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -183,6 +222,40 @@
         top: var(--spacing-md);
         right: var(--spacing-md);
     }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-icon i {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .feature-header-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .feature-header-icon i {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .back-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .categories-list,
+    .income-sources-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-card {
+        padding: var(--spacing-md);
+    }
 }
 
 /* Portrait Phones */
@@ -193,6 +266,18 @@
 
     .calendar-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-md);
+    }
+    
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.8rem;
     }
 }
 
@@ -205,6 +290,17 @@
     .modal-content {
         max-height: 90vh;
         overflow-y: auto;
+    }
+    
+    .feature-header {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .feature-header-icon {
+        margin-right: var(--spacing-md);
+        margin-bottom: 0;
     }
 }
 
@@ -259,5 +355,10 @@
 
     .chart-container {
         max-height: 3in;
+    }
+    
+    .feature-header::before,
+    .feature-card::after {
+        display: none;
     }
 }

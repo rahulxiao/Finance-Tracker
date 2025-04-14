@@ -1,0 +1,507 @@
+/* style.css */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8fafc;
+    color: #1f2a44;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Mobile Header */
+.mobile-header {
+    display: none;
+    background-color: #ffffff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.mobile-header h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    z-index: 1000;
+}
+
+.sidebar-header {
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: border-color 0.3s ease;
+}
+
+.sidebar-header h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.sidebar-toggle,
+.sidebar-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-toggle i,
+.sidebar-close i {
+    width: 24px;
+    height: 24px;
+    color: #64748b;
+    transition: color 0.3s ease;
+}
+
+.sidebar-toggle:hover,
+.sidebar-close:hover {
+    background-color: #f1f5f9;
+}
+
+.sidebar-toggle:hover i,
+.sidebar-close:hover i {
+    color: #1e3a8a;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 12px 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    color: #475569;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: background-color 0.2s ease, color 0.3s ease;
+}
+
+.sidebar-menu li a i {
+    margin-right: 12px;
+    width: 22px;
+    height: 22px;
+    color: #64748b;
+    transition: color 0.3s ease;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li.active a {
+    background-color: #f1f5f9;
+    color: #1e3a8a;
+}
+
+.sidebar-menu li.active a i {
+    color: #1e3a8a;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 260px;
+    flex: 1;
+    padding: 32px;
+    background-color: #f8fafc;
+    transition: margin-left 0.3s ease, background-color 0.3s ease;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+}
+
+.date-display {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    color: #64748b;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+/* Card System (Features Grid) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 0;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.feature-icon i {
+    width: 28px;
+    height: 28px;
+    color: #1e3a8a;
+    transition: color 0.3s ease;
+}
+
+.feature-card h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1f2a44;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+    transition: color 0.3s ease;
+}
+
+.feature-card p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+/* Accent Lines for Cards */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.feature-card:nth-child(1)::before { /* Expense Categories */
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+.feature-card:nth-child(2)::before { /* Income Recording */
+    background: linear-gradient(90deg, #15803d, #4ade80);
+}
+.feature-card:nth-child(3)::before { /* Budget Goals */
+    background: linear-gradient(90deg, #c2410c, #fb923c);
+}
+.feature-card:nth-child(4)::before { /* Bill Reminders */
+    background: linear-gradient(90deg, #b91c1c, #f87171);
+}
+.feature-card:nth-child(5)::before { /* Reports/Graphs */
+    background: linear-gradient(90deg, #1e40af, #60a5fa);
+}
+.feature-card:nth-child(6)::before { /* Account Linking */
+    background: linear-gradient(90deg, #6d28d9, #a78bfa);
+}
+.feature-card:nth-child(7)::before { /* Debt Tracking */
+    background: linear-gradient(90deg, #9a3412, #f87171);
+}
+.feature-card:nth-child(8)::before { /* Savings Goals */
+    background: linear-gradient(90deg, #166534, #4ade80);
+}
+.feature-card:nth-child(9)::before { /* Tax Categories */
+    background: linear-gradient(90deg, #4b5563, #94a3b8);
+}
+.feature-card:nth-child(10)::before { /* Export Data */
+    background: linear-gradient(90deg, #1e3a8a, #60a5fa);
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background-color: #f1f5f9;
+    transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .mobile-header {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .mobile-header h1 {
+    color: #bfdbfe;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1e293b;
+    border-right: 1px solid #334155;
+}
+
+body.dark-mode .sidebar-header {
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .sidebar-header h1 {
+    color: #bfdbfe;
+}
+
+body.dark-mode .sidebar-toggle i,
+body.dark-mode .sidebar-close i {
+    color: #94a3b8;
+}
+
+body.dark-mode .sidebar-toggle:hover,
+body.dark-mode .sidebar-close:hover {
+    background-color: #334155;
+}
+
+body.dark-mode .sidebar-toggle:hover i,
+body.dark-mode .sidebar-close:hover i {
+    color: #bfdbfe;
+}
+
+body.dark-mode .sidebar-menu li a {
+    color: #94a3b8;
+}
+
+body.dark-mode .sidebar-menu li a:hover,
+body.dark-mode .sidebar-menu li.active a {
+    background-color: #334155;
+    color: #bfdbfe;
+}
+
+body.dark-mode .sidebar-menu li a i {
+    color: #94a3b8;
+}
+
+body.dark-mode .sidebar-menu li.active a i {
+    color: #bfdbfe;
+}
+
+body.dark-mode .main-content {
+    background-color: #0f172a;
+}
+
+body.dark-mode .page-header h1 {
+    color: #bfdbfe;
+}
+
+body.dark-mode .date-display {
+    color: #94a3b8;
+}
+
+body.dark-mode .feature-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .feature-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .feature-icon {
+    background: linear-gradient(135deg, #334155, #475569);
+}
+
+body.dark-mode .feature-icon i {
+    color: #bfdbfe;
+}
+
+body.dark-mode .feature-card h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .feature-card p {
+    color: #94a3b8;
+}
+
+body.dark-mode .feature-card::before {
+    opacity: 0.9;
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode #darkModeToggle:hover {
+    background-color: #475569;
+}
+
+/* Fallback for System Dark Mode (if no manual toggle) */
+@media (prefers-color-scheme: dark) {
+    body:not(.dark-mode) {
+        /* Only apply if manual dark-mode class isn't set */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 240px;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-top: 72px; /* Account for mobile header height */
+    }
+
+    .sidebar-close {
+        display: block;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none !important;
+    }
+
+    .mobile-header {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-header {
+        padding: 12px 16px;
+    }
+
+    .mobile-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .main-content {
+        padding: 16px;
+        padding-top: 64px;
+    }
+
+    .sidebar-header {
+        padding: 20px;
+    }
+}
